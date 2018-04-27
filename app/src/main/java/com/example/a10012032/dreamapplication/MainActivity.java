@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * The {@link ViewPager} that will host the section contents.
+     * testing my initial commit application
      */
     private ViewPager mViewPager;
 
