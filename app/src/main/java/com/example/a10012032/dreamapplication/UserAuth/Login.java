@@ -50,6 +50,7 @@ public class Login extends AppCompatActivity {
                 } else {
                     Log.d("TAG", "onAuthStateChanged:signed_out");
                 }
+                //hello
             }
         };
 
