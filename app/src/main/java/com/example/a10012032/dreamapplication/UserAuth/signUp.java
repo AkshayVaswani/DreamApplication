@@ -67,6 +67,7 @@ public class signUp extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     signUp.USER_KEY=user.getUid();
+                    Log.d("TAGUSER", signUp.USER_KEY);
                 } else {
                     Log.d("TAG", "onAuthStateChanged:signed_out");
                 }
@@ -86,9 +87,15 @@ public class signUp extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
 
+                                if(task.isSuccessful()){
+                                    Log.d("taskUser", task.getException()+"");
+                                }else{
+                                    Log.d("taskUser", task.getException()+" didnt work");
+                                }
                                 if (task.isSuccessful()) {
                                     DatabaseReference mChildDatabase = mDatabaseRef.child("Users").push();
                                     String key_user = mChildDatabase.getKey();
+                                    Log.d("TAGUSER", key_user);
                                     mChildDatabase.child("isVerified").setValue("unverified");
                                     mChildDatabase.child("userKey").setValue(key_user);
                                     mChildDatabase.child("EmailUser").setValue(nUserString);
