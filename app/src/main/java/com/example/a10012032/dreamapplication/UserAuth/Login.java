@@ -18,8 +18,13 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Iterator;
 
 public class Login extends AppCompatActivity {
     EditText userEdit;
@@ -50,7 +55,6 @@ public class Login extends AppCompatActivity {
                 } else {
                     Log.d("TAG", "onAuthStateChanged:signed_out");
                 }
-                //hello
             }
         };
 
@@ -67,7 +71,7 @@ public class Login extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                /*mDatabaseRef.addValueEventListener(new ValueEventListener() {
+                                mDatabaseRef.addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -78,7 +82,7 @@ public class Login extends AppCompatActivity {
                                     public void onCancelled(DatabaseError databaseError) {
 
                                     }
-                                });*/
+                                });
                                 mAuthListener = new FirebaseAuth.AuthStateListener() {
                                     @Override
                                     public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -107,20 +111,20 @@ public class Login extends AppCompatActivity {
 
     }
 
-    /*private void checkUserValidation(DataSnapshot dataSnapshot, String emailForVer) {
+    private void checkUserValidation(DataSnapshot dataSnapshot, String emailForVer) {
         Iterator iterator = dataSnapshot.getChildren().iterator();
         while (iterator.hasNext()) {
             DataSnapshot dataUser = (DataSnapshot) iterator.next();
             if (dataUser.child("EmailUser").getValue().toString().equals(emailForVer)) {
                 if (dataUser.child("isVerified").getValue().toString() != null) {
-                    Intent in = new Intent(katiRoll.this, Profile.class);
+                    Intent in = new Intent(Login.this, Profile.class);
                     startActivity(in);
                 } else {
-                    startActivity(new Intent(katiRoll.this, MenuOne.class));
+                    startActivity(new Intent(Login.this, MainActivity.class));
                 }
             }
         }
-    }*/
+    }
 
     @Override
     protected void onStart() {
