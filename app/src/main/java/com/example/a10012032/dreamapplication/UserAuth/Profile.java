@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.a10012032.dreamapplication.MainActivity;
+import com.example.a10012032.dreamapplication.Main.MainActivity;
 import com.example.a10012032.dreamapplication.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.a10012032.dreamapplication.MainActivity;
+import com.example.a10012032.dreamapplication.Main.MainActivity;
 import com.example.a10012032.dreamapplication.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
